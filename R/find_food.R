@@ -18,5 +18,6 @@ find_food <- function(food, return_type = 'all', case_sens = FALSE) {
 
   res <- grep(toupper(food), list_food_names())
   if (return_type == "first") res <- res[1]
-  food_db$food_des[res, ]
+  food_list <- food_db$food_des[res, ]
+  View(food_list)
 }
