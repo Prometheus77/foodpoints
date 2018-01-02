@@ -10,7 +10,7 @@ get_nutrition_data <- function(food_id) {
   checkmate::assert_string(food_id)
 
   food_db$nut_data %>%
-    filter(NDB_No == food_id) %>%
-    left_join(food_db$nutr_def, by = "Nutr_No") %>%
-    select(Tagname, NutrDesc, Nutr_Val, Units)
+    dplyr::filter(NDB_No == food_id) %>%
+    dplyr::left_join(food_db$nutr_def, by = "Nutr_No") %>%
+    dplyr::select(Tagname, NutrDesc, Nutr_Val, Units)
 }

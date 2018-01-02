@@ -11,9 +11,9 @@
 get_wwp_data <- function(food_id) {
   nd <- get_nutrition_data(food_id)
 
-  calories <- nd %>% filter(Tagname == "ENERC_KCAL") %>% pull(Nutr_Val)
-  fat <- nd %>% filter(Tagname == "FAT") %>% pull(Nutr_Val)
-  fiber <- nd %>% filter(Tagname == "FIBTG") %>% pull(Nutr_Val)
+  calories <- nd %>% dplyr::filter(Tagname == "ENERC_KCAL") %>% dplyr::pull(Nutr_Val)
+  fat <- nd %>% dplyr::filter(Tagname == "FAT") %>% dplyr::pull(Nutr_Val)
+  fiber <- nd %>% dplyr::filter(Tagname == "FIBTG") %>% dplyr::pull(Nutr_Val)
 
   c(calories, fat, fiber)
 }
