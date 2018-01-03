@@ -54,13 +54,13 @@ calc_points <- function(food_id, quantity = 100, measure = "g", density = 1, poi
   } else if (measure == "ml") {
     mult <- density * quantity * 100
   } else if (measure == "c") {
-    mult <- density * quantity / 2.36
+    mult <- density * quantity / 0.4227
   } else if (measure == "pt") {
-    mult <- density * quantity / 4.73
+    mult <- density * quantity / 0.2113
   } else if (measure == "qt") {
-    mult <- density * quantity / 9.46
+    mult <- density * quantity / 0.1057
   } else if (measure == "gal") {
-    mult <- density * quantity / 37.85
+    mult <- density * quantity / 0.02642
   }
 
   round(p * mult, decimals)
