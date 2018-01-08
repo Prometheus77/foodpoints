@@ -30,18 +30,21 @@ server <- function(input, output) {
   })
 
   output$points <- renderText({
+    if (input$point_system == "Original Points") { point_system <- "wwp" } else { point_system <- "wwpp" }
     if (!is.null(input$food_id)) {
       p <- calc_points(input$food_id,
                   quantity = input$quantity,
                   measure = input$measure,
                   density = input$density,
-                  decimals = input$decimals)
+                  decimals = input$decimals,
+                  point_system = point_system)
       paste0("Points: ", p)
     }
   })
 
   output$nutrition_data <- renderTable({
-    if (input$point_system == "wwpp") {
+    if (input$point_system == "Original Points") { point_system <- "wwp" } else { point_system <- "wwpp" }
+    if (point_system == "wwp") {
       value <- get_wwp_data(input$food_id)
       measure <- c("Calories", "Fat (g)", "Fiber (g)")
     } else {
